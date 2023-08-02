@@ -9,12 +9,4 @@ import { FormsModule } from '@angular/forms';
   declarations: [LoginComponent],
   imports: [CommonModule, LoginRoutingModule, FormsModule],
 })
-export class LoginModule {
-  username!: string;
-  password!: string;
-
-  onSubmit() {
-    console.log('Username:', this.username);
-    console.log('Password:', this.password);
-  }
-}
+export class LoginModule {}
