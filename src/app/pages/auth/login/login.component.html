@@ -1,22 +1,22 @@
-<form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+<form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="dark-form">
   <div class="form-group">
-    <label for="username">Username</label>
+    <label for="username" class="dark-label">Username</label>
     <input
       type="text"
       id="username"
       name="username"
-      class="form-control"
+      class="form-control dark-input"
       ngModel
       required
     />
   </div>
   <div class="form-group">
-    <label for="password">Password</label>
+    <label for="password" class="dark-label">Password</label>
     <input
       type="password"
       id="password"
       name="password"
-      class="form-control"
+      class="form-control dark-input"
       ngModel
       required
     />

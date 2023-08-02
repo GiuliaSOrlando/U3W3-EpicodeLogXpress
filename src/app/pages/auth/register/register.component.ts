@@ -7,7 +7,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { IRegister } from '../interfaces/register';
 
 @Component({
   selector: 'app-register',
@@ -60,7 +59,6 @@ export class RegisterComponent {
     if (password === confirmPassword) {
       return null;
     } else {
-      console.log(formGroup);
       return { passwordMismatch: true };
     }
   }
@@ -76,9 +74,15 @@ export class RegisterComponent {
 
   register() {
     if (this.form.valid) {
-      this.authService.register(this.form.value).subscribe((res) => {
-        console.log(res);
-      });
+      this.authService.register(this.form.value).subscribe(
+        (res) => {
+          console.log(res);
+          this.router.navigate(['/home']);
+        },
+        (error) => {
+          console.log('Error during registration:', error);
+        }
+      );
     } else {
       console.log('Invalid form! Please check the fields.');
     }
