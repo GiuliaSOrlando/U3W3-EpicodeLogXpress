@@ -1,0 +1,114 @@
+<form [formGroup]="form" class="dark-form">
+  <div class="form-group mb-3">
+    <input
+      type="name"
+      class="form-control dark-input"
+      placeholder="Insert your name here"
+      formControlName="name"
+    />
+    <span *ngIf="!isValid('name') && isTouched('name')" class="error-message"
+      >Please enter a valid name</span
+    >
+  </div>
+  <div class="form-group mb-3">
+    <input
+      type="surname"
+      class="form-control dark-input"
+      placeholder="Insert your surname here"
+      formControlName="surname"
+    />
+    <span
+      *ngIf="!isValid('surname') && isTouched('surname')"
+      class="error-message"
+      >Please enter a valid surname</span
+    >
+  </div>
+  <div class="form-group mb-3">
+    <input
+      type="text"
+      class="form-control dark-input"
+      placeholder="Username"
+      formControlName="username"
+    />
+    <span
+      *ngIf="!isValid('username') && isTouched('username')"
+      class="error-message"
+    >
+      Please enter a valid username
+    </span>
+  </div>
+  <div class="form-group mb-3">
+    <label for="sex" class="dark-label">Select Sex:</label>
+    <select
+      formControlName="sexes"
+      name="sex"
+      id="sex"
+      class="form-control dark-input"
+    >
+      <option *ngFor="let sex of sexes" [value]="sex">{{ sex }}</option>
+    </select>
+  </div>
+  <div class="form-group mb-3">
+    <div class="form-row row">
+      <div class="form-group col-6 mb-3">
+        <input
+          type="email"
+          class="form-control dark-input"
+          placeholder="Insert your email here"
+          formControlName="email"
+        />
+      </div>
+      <div class="form-group col-6 mb-3">
+        <input
+          type="password"
+          class="form-control dark-input"
+          placeholder="Insert your password here"
+          formControlName="password"
+        />
+      </div>
+      <div class="form-group col-6 mb-3">
+        <input
+          type="password"
+          class="form-control dark-input"
+          placeholder="Confirm your password here"
+          formControlName="confirm-password"
+        />
+      </div>
+      <span
+        *ngIf="form.errors && form.errors['passwordMismatch']"
+        class="error-message mb-3"
+      >
+        Passwords do not match
+      </span>
+      <span
+        *ngIf="!form.errors || !form.errors['passwordMismatch']"
+        class="success-message mb-3"
+      >
+        Passwords match
+      </span>
+    </div>
+    <span *ngIf="!isValid('authData')" class="error-message mb-3"
+      >Please enter valid data</span
+    >
+  </div>
+  <div class="form-group mb-3">
+    <label for="profile-image" class="dark-label">Profile Image:</label>
+    <input
+      type="file"
+      id="profile-image"
+      class="form-control dark-input"
+      formControlName="profileImage"
+    />
+  </div>
+  <div class="form-group mb-3">
+    <label for="biography" class="dark-label">Profile Biography:</label>
+    <textarea
+      id="biography"
+      class="form-control dark-input"
+      placeholder="Enter your profile biography"
+      formControlName="biography"
+      rows="4"
+    ></textarea>
+  </div>
+  <button type="submit" class="btn btn-light">Submit</button>
+</form>
