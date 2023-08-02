@@ -12,9 +12,9 @@ import { IRegister } from './interfaces/register';
 })
 export class AuthService {
   private jwtHelper: JwtHelperService = new JwtHelperService();
-  apiUrl: string = 'http://localhost:3000/users';
-  registerUrl: string = this.apiUrl + '/register';
-  loginUrl: string = this.apiUrl + '/login';
+  apiUrl: string = 'http://localhost:3000/users/';
+  registerUrl: string = this.apiUrl + 'register';
+  loginUrl: string = this.apiUrl + 'login';
 
   autoLogoutTimer: any;
 

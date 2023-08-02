@@ -1,1 +1,15 @@
-{ "users": [] }
+{
+  "users": [
+    {
+      "name": "John",
+      "surname": "Doe",
+      "username": "johndoe",
+      "sexes": "male",
+      "email": "<EMAIL>",
+      "password": "<PASSWORD>",
+      "confirm-password": "<PASSWORD>",
+      "profileImage": "",
+      "biography": ""
+    }
+  ]
+}
