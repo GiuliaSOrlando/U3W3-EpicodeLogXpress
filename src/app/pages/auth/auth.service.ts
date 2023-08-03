@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { BehaviorSubject, tap } from 'rxjs';
+import { BehaviorSubject, map, tap } from 'rxjs';
 import { IAccessData } from './interfaces/access-data';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -12,13 +12,15 @@ import { IRegister } from './interfaces/register';
 })
 export class AuthService {
   private jwtHelper: JwtHelperService = new JwtHelperService();
-  apiUrl: string = 'http://localhost:3000/users/';
+  apiUrl: string = 'http://localhost:3000/';
   registerUrl: string = this.apiUrl + 'register';
   loginUrl: string = this.apiUrl + 'login';
 
   autoLogoutTimer: any;
 
   private authSubject = new BehaviorSubject<null | IAccessData>(null);
+  user$ = this.authSubject.asObservable();
+  isLoggedIn$ = this.user$.pipe(map((user) => !!user));
 
   constructor(private http: HttpClient, private router: Router) {}
 

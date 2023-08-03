@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { ILogin } from '../interfaces/login';
 
 @Component({
   selector: 'app-login',
@@ -6,11 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  username!: string;
-  password!: string;
+  formData: ILogin = {
+    email: '',
+    password: '',
+  };
+  constructor(private authService: AuthService) {}
 
-  onSubmit() {
-    console.log('Username:', this.username);
-    console.log('Password:', this.password);
+  login() {
+    this.authService.login(this.formData).subscribe((data) => {
+      console.log(data);
+    });
   }
 }

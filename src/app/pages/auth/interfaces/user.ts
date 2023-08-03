@@ -7,4 +7,5 @@ export interface IUser {
   password: string;
   profileImage: File;
   biography: string;
+  id?: number;
 }

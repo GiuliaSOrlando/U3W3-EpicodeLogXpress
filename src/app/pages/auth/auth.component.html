@@ -1,7 +1,9 @@
-<p>Planning to make the "profile page" here</p>
-<p>{{ users.name }}</p>
-<p>{{ users.surname }}</p>
-<p>{{ users.sexes }}</p>
-<img src="{{ users.profileImage }}" alt="" />
-<p>{{ users.email }}</p>
-<p>{{ users.biography }}</p>
+<div class="dark-form">
+  <div class="dark-label">User Profile Page</div>
+  <p><span class="dark-label">Name:</span> {{ users.name }}</p>
+  <p><span class="dark-label">Surname:</span> {{ users.surname }}</p>
+  <p><span class="dark-label">Gender:</span> {{ users.sexes }}</p>
+  <img src="{{ users.profileImage }}" alt="Profile Picture" />
+  <p><span class="dark-label">Email:</span> {{ users.email }}</p>
+  <p><span class="dark-label">Biography:</span> {{ users.biography }}</p>
+</div>

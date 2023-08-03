@@ -77,7 +77,7 @@ export class RegisterComponent {
       this.authService.register(this.form.value).subscribe(
         (res) => {
           console.log(res);
-          this.router.navigate(['/home']);
+          this.router.navigate(['/auth']);
         },
         (error) => {
           console.log('Error during registration:', error);
